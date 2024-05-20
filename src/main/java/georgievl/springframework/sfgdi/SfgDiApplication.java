@@ -1,9 +1,6 @@
 package georgievl.springframework.sfgdi;
 
-import georgievl.springframework.sfgdi.controllers.ConstructorInjectedController;
-import georgievl.springframework.sfgdi.controllers.MyController;
-import georgievl.springframework.sfgdi.controllers.PropertyInjectedController;
-import georgievl.springframework.sfgdi.controllers.SetterInjectedController;
+import georgievl.springframework.sfgdi.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -13,6 +10,9 @@ public class SfgDiApplication {
 
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(SfgDiApplication.class, args);
+
+		I18nController i18nController = (I18nController) ctx.getBean("i18nController");
+		System.out.println(i18nController.sayHello());
 
 		System.out.println("-------- Primary Bean");
 		MyController myController = (MyController) ctx.getBean("myController");
